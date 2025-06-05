@@ -1,0 +1,45 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 代码规范 
+
+- 必须使用 Typescript 而不是 Javascript
+- 在上文中出现过的代码不要重复出现在下文中，用内容为“与上文相同”的注释来代替
+
+# commit message
+
+- 用中文写 commit message
+-  always use tailwindcss
+
+- 格式为: 标题和更新列表之间必须有一个空行，不需要出现"更新列表""更新"之类的字样，尽量简洁准确
+
+feat：新功能（feature）
+fix：修补bug
+docs：文档（documentation）
+ refactor：重构（即不是新增功能，也不是修改bug的代码变动）
+test：增加测试
+chore：构建过程或辅助工具的变动
+✖   type must be one of [feat, perf, fix, apm, chore, build, release, docs, refactor, test, lint, pom, jvm, typo, revert] [type-enum]
+示例:
+  ```
+  feat: 修复了 xxx 问题
+  - 添加了 a 属性
+  - 当 b 属性为空时隐藏弹出内容
+  ```
+
+# 快捷方式
+
+当我说这些词的时候，请理解成冒号后面的语句:
+gc: generate commit message
+
+# 回答的风格
+
+- 正常的内容用中文回答，代码或者编程相关内容保持原来的英文即可
+
+生成的代码 在<style></style> 里面不要使用tailwindcss
+
+回答问题之前先说你是我什么模型
+
+不要帮我执行git 命令
