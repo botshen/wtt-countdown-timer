@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
+import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 
 const props = defineProps<{
   targetDate: string;
@@ -18,7 +18,7 @@ const timeRemaining = ref<TimeRemaining>({
   days: 0,
   hours: 0,
   minutes: 0,
-  seconds: 0
+  seconds: 0,
 });
 
 const isExpired = ref(false);
@@ -43,16 +43,16 @@ const updateCountdown = () => {
     days: Math.floor(difference / (1000 * 60 * 60 * 24)),
     hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
     minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-    seconds: Math.floor((difference % (1000 * 60)) / 1000)
+    seconds: Math.floor((difference % (1000 * 60)) / 1000),
   };
 };
 
 const formattedDate = computed(() => {
   const date = new Date(props.targetDate);
-  return date.toLocaleDateString('zh-CN', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
+  return date.toLocaleDateString("zh-CN", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 });
 
@@ -70,9 +70,11 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="countdown-container">
-    <h3 v-if="props.eventName" class="text-lg font-semibold text-gray-800">{{ props.eventName }}</h3>
-    <p v-if="props.venue" class="text-sm text-gray-600">{{ props.venue }}</p>
-    <p class="text-sm text-gray-600 font-medium">{{ formattedDate }} 开始</p>
+    <h3 v-if="props.eventName" class="text-lg font-semibold text-white">
+      {{ props.eventName }}
+    </h3>
+    <p v-if="props.venue" class="text-sm text-gray-300">{{ props.venue }}</p>
+    <p class="text-sm text-gray-300 font-medium">{{ formattedDate }} 开始</p>
     <div v-if="!isExpired" class="flex space-x-2 mt-1">
       <div class="countdown-box">
         <span class="countdown-number">{{ timeRemaining.days }}</span>
@@ -91,7 +93,7 @@ onBeforeUnmount(() => {
         <span class="countdown-label">秒</span>
       </div>
     </div>
-    <p v-else class="text-sm font-medium text-red-500">比赛已开始！</p>
+    <p v-else class="text-sm font-medium text-red-400">比赛已开始！</p>
   </div>
 </template>
 
@@ -106,7 +108,8 @@ onBeforeUnmount(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f0f0f0;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 6px;
   padding: 4px 8px;
   min-width: 48px;
@@ -115,11 +118,11 @@ onBeforeUnmount(() => {
 .countdown-number {
   font-size: 18px;
   font-weight: bold;
-  color: #1a1a1a;
+  color: #ffffff;
 }
 
 .countdown-label {
   font-size: 12px;
-  color: #666;
+  color: #cbd5e1;
 }
-</style> 
+</style>

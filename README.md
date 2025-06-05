@@ -1,7 +1,82 @@
-# WXT + Vue 3
+# 乒乓球浏览器扩展 MVP 方案
 
-This template should help get you started developing with Vue 3 in WXT.
+## 核心功能（MVP 版本）
 
-## Recommended IDE Setup
+1. **赛事倒计时系统**
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar).
+   - 利用已有的 CountdownTimer 组件显示近期重要赛事倒计时
+   - 显示赛事名称、场地和开始时间
+
+2. **赛程简表**
+
+   - 未来 7 天的主要乒乓球赛事列表
+   - 包含时间、赛事名称、主要选手和简单赛制信息
+
+3. **快捷直播入口**
+   - 汇总 3-5 个主流直播平台的乒乓球赛事链接
+   - 当前进行中比赛的直观标记
+
+## 交互设计
+
+1. **扩展弹出窗口**
+
+   - 点击浏览器扩展图标弹出的主界面
+   - 顶部：最近赛事倒计时
+   - 中部：未来赛程列表
+   - 底部：直播入口按钮
+
+2. **通知系统**
+
+   - 关键赛事开始前 30 分钟推送通知
+   - 可一键关闭/开启通知功能
+
+3. **简单设置页**
+   - 语言切换（中/英）
+   - 时区调整
+   - 通知开关
+
+## 技术方案
+
+### 前端架构
+
+- 继续使用 Vue.js + TypeScript + Tailwind CSS
+- 组件结构:
+  - App.vue (入口)
+  - CountdownTimer.vue (已有)
+  - MatchList.vue (赛程列表)
+  - LiveStreamLinks.vue (直播入口)
+  - Settings.vue (简单设置)
+
+### 数据管理
+
+- 使用简单 JSON 文件存储初始赛事数据
+- 使用浏览器存储(localStorage)保存用户设置
+- 每日一次的数据更新机制
+
+### API 调用
+
+- 使用一个简单的公开 API 获取基础赛事数据
+- 如 ITTF 提供的公开 API 或其他体育数据 API
+- 备选方案：创建一个简单的静态 JSON 文件,定期手动更新
+
+### 浏览器扩展特性
+
+- manifest.json 配置基本权限
+- 后台脚本处理通知推送
+- 弹出窗口展示主界面
+
+### 部署流程
+
+1. 打包构建扩展文件
+2. Chrome Web Store 和 Firefox Add-ons 商店提交
+3. 简单的官方页面说明扩展功能和安装方法
+
+## 快速实现时间线
+
+- 设计与原型：2 天
+- 核心功能开发：5-7 天
+- 测试与修复：2 天
+- 提交审核：1-2 天
+- 总计：约 2 周内可上线
+
+这个 MVP 方案专注于提供最核心的赛事信息和直播入口,交互简单直观,技术实现难度不高,可以快速开发上线。后续可根据用户反馈逐步迭代添加社区功能、数据分析、个性化设置等高级特性。
