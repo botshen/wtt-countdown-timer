@@ -1,6 +1,6 @@
 {
-  "name": "wxt-vue-starter",
-  "description": "manifest.json description",
+  "name": "wtt-countdown-timer",
+  "description": "Countdown timer for WTT",
   "private": true,
   "version": "0.0.0",
   "type": "module",
